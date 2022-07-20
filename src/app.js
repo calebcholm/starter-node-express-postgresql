@@ -10,6 +10,12 @@ app.use("/products", productsRouter);
 app.use("/categories", categoriesRouter);
 app.use("/suppliers", suppliersRouter);
 
+//Something fun with the route for '/' because 'not found' was getting annoying...
+app.get('/', (req, res) => {
+  res.send('WELCOME TO THE HIMALAYAS!!!')
+});
+
+
 // Not found handler
 app.use((req, res, next) => {
   next({ status: 404, message: `Not found: ${req.originalUrl}` });
